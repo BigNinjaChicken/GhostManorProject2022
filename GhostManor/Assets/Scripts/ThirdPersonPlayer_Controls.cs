@@ -13,7 +13,7 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
 
     // movement feilds
     private Rigidbody rb;
-    private Collider collider;
+    public new Collider collider;
     [SerializeField]
     private float movementForce = 1f;
     [SerializeField]
@@ -69,10 +69,10 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
 
     private void DoJump(InputAction.CallbackContext obj)
     {
-        Debug.Log("Jump!!!");
-        if(isGrounded())
+        //Debug.Log("Jump!!!");
+        if (isGrounded())
         {
-            Debug.Log("Jump Force!!!");
+            //Debug.Log("Jump Force!!!");
             forceDirection += Vector3.up * jumpForce;
         }
     }
@@ -123,7 +123,7 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
         {
             // control rotation of the rigid body
             this.rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
-        } 
+        }
         else
         {
             // stop rotating if there is no input
