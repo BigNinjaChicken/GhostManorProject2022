@@ -12,19 +12,24 @@ public class BasicEnemy_GroupController : MonoBehaviour
 
     private GameObject[] roomNodes;
     public List<GameObject> unsearchedRooms;
-    private GameObject[] interestNodes;
+    private List<Transform> interestNodes;
     public GameObject basicEnemyPrefab;
 
     public GameObject selectedRoom;
     public bool foundRoom;
     private GameObject[] spawnLocations;
+    private bool inRoom;
+    private bool goingToInterest;
 
     private void Awake()
     {
         roomNodes = GameObject.FindGameObjectsWithTag("RoomNode");
         unsearchedRooms = new List<GameObject>(roomNodes);
-        interestNodes = GameObject.FindGameObjectsWithTag("InterestNode");
         spawnLocations = GameObject.FindGameObjectsWithTag("EnemySpawn");
+
+        foundRoom = false;
+        inRoom = false;
+        goingToInterest = false;
     }
 
     public void PopulateGroupArray()
@@ -37,10 +42,14 @@ public class BasicEnemy_GroupController : MonoBehaviour
     {
         if (GetFoundRoom())
         {
-            foreach (BasicEnemy_Controller enemy in BasicEnemy)
+            // the inRoom var gets changed in EnteredRoom
+            if (GetInRoom())
             {
-                NavMeshAgent nav = enemy.GetComponent<NavMeshAgent>();
-                nav.SetDestination(selectedRoom.transform.position);
+                GoToInterest();
+            } 
+            else
+            {
+                GoToRoom();
             }
         }
         else
@@ -65,6 +74,13 @@ public class BasicEnemy_GroupController : MonoBehaviour
                 selectedRoom = room;
             }
         }
+        unsearchedRooms.Remove(selectedRoom);
+        if (unsearchedRooms.Count.Equals(0))
+        {
+            unsearchedRooms = new List<GameObject>(roomNodes);
+            unsearchedRooms.Remove(selectedRoom);
+        }
+
         foundRoom = true;
     }
 
@@ -73,12 +89,54 @@ public class BasicEnemy_GroupController : MonoBehaviour
         return foundRoom;
     }
 
-    public void EnteredRoom()
+    void GoToRoom()
     {
         foreach (BasicEnemy_Controller enemy in BasicEnemy)
         {
             NavMeshAgent nav = enemy.GetComponent<NavMeshAgent>();
             nav.SetDestination(selectedRoom.transform.position);
         }
+    }
+
+    public void EnteredRoom(List<Transform> interestNodesTemp)
+    {
+        if (!inRoom)
+        {
+            inRoom = true;
+            interestNodes = interestNodesTemp;
+        }
+    }
+
+    void GoToInterest()
+    {
+        if (!goingToInterest)
+        {
+            goingToInterest = true;
+            foreach (BasicEnemy_Controller enemy in BasicEnemy)
+            {
+                int randNode;
+                randNode = UnityEngine.Random.Range(1, interestNodes.Count);
+
+                NavMeshAgent nav = enemy.GetComponent<NavMeshAgent>();
+                nav.SetDestination(interestNodes[randNode].position);
+            }
+
+            int waitTime = UnityEngine.Random.Range(4,7);
+            Invoke("WaitedAtInterest", waitTime);
+        }
+    }
+
+    void WaitedAtInterest()
+    {
+        Debug.Log("LOOP!!!");
+
+        foundRoom = false;
+        inRoom = false;
+        goingToInterest = false;
+    }
+
+    bool GetInRoom()
+    {
+        return inRoom;
     }
 }
