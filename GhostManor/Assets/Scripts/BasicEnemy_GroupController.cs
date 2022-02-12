@@ -73,8 +73,12 @@ public class BasicEnemy_GroupController : MonoBehaviour
         return foundRoom;
     }
 
-    void AreaOfInterest()
+    public void EnteredRoom()
     {
-        
+        foreach (BasicEnemy_Controller enemy in BasicEnemy)
+        {
+            NavMeshAgent nav = enemy.GetComponent<NavMeshAgent>();
+            nav.SetDestination(selectedRoom.transform.position);
+        }
     }
 }
