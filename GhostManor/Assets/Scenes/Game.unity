@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 58492150}
   m_Layer: 6
   m_Name: InterestNode (10)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 117229498}
   m_Layer: 6
   m_Name: InterestNode (9)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -729,7 +729,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162901671}
-  m_LocalRotation: {x: 0.018189512, y: 0.000000003604933, z: -7.9886414e-10, w: 0.9998346}
+  m_LocalRotation: {x: 0.018189512, y: -0.0000000041313264, z: 9.164023e-10, w: 0.9998346}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -751,7 +751,7 @@ GameObject:
   - component: {fileID: 166876234}
   m_Layer: 6
   m_Name: InterestNode (13)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 202002328}
   m_Layer: 6
   m_Name: InterestNode (5)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -993,7 +993,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270975220}
-  m_LocalRotation: {x: -0.018141434, y: 0.0000000036315708, z: -6.673877e-10, w: 0.99983543}
+  m_LocalRotation: {x: -0.018141434, y: -0.000000004161887, z: 7.657271e-10, w: 0.99983543}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1015,7 +1015,7 @@ GameObject:
   - component: {fileID: 271775715}
   m_Layer: 6
   m_Name: InterestNode (12)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 275645117}
   m_Layer: 6
   m_Name: InterestNode (11)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1369,7 +1369,7 @@ GameObject:
   - component: {fileID: 293129911}
   m_Layer: 6
   m_Name: InterestNode (18)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1464,7 +1464,7 @@ GameObject:
   - component: {fileID: 299613405}
   m_Layer: 6
   m_Name: InterestNode (7)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1559,7 +1559,7 @@ GameObject:
   - component: {fileID: 304244486}
   m_Layer: 6
   m_Name: InterestNode (3)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1654,7 +1654,7 @@ GameObject:
   - component: {fileID: 332653150}
   m_Layer: 6
   m_Name: InterestNode (16)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2188,7 +2188,7 @@ GameObject:
   - component: {fileID: 363673543}
   m_Layer: 6
   m_Name: InterestNode (6)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2447,7 +2447,7 @@ GameObject:
   - component: {fileID: 569237547}
   m_Layer: 6
   m_Name: RoomNode (2)
-  m_TagString: Untagged
+  m_TagString: RoomNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2547,7 +2547,7 @@ GameObject:
   - component: {fileID: 668075073}
   m_Layer: 6
   m_Name: RoomNode
-  m_TagString: Untagged
+  m_TagString: RoomNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2648,7 +2648,7 @@ GameObject:
   - component: {fileID: 709086446}
   m_Layer: 6
   m_Name: InterestNode (20)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2729,6 +2729,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709086444}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &732335863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 732335865}
+  - component: {fileID: 732335864}
+  m_Layer: 0
+  m_Name: BasicEnemy_GlobalController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &732335864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732335863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec87f92ac07e5343b1f5e3b1e0e9d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicEnemyPrefab: {fileID: 6865684177630922081, guid: 2342bf48e876a0a42ae397f2c92641b7, type: 3}
+  basicEnemy_GroupControllerPrefab: {fileID: 1272060916606081210, guid: 4ce821ef463e7944c83aeb6838134a65, type: 3}
+--- !u!4 &732335865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732335863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.90418, y: 15.620467, z: -11.595968}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744829589
 GameObject:
   m_ObjectHideFlags: 3
@@ -3051,7 +3096,7 @@ GameObject:
   - component: {fileID: 803451696}
   m_Layer: 6
   m_Name: InterestNode (4)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3144,7 +3189,7 @@ GameObject:
   - component: {fileID: 811534866}
   - component: {fileID: 811534865}
   - component: {fileID: 811534864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnNode (1)
   m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
@@ -3308,7 +3353,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826731259}
-  m_LocalRotation: {x: 0.100201175, y: 0.000000003725893, z: -3.7211434e-10, w: 0.9949672}
+  m_LocalRotation: {x: 0.100201175, y: -0.0000000036741161, z: 3.6685535e-10, w: 0.9949672}
   m_LocalPosition: {x: 0.54999995, y: 2.65, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3582,7 +3627,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856365680}
-  m_LocalRotation: {x: 0.000000022351742, y: 0.0000000072730755, z: -0.0000000014767176, w: 1}
+  m_LocalRotation: {x: 0.000000022351742, y: -0.000000007750311, z: 0.0000000015742412, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3604,7 +3649,7 @@ GameObject:
   - component: {fileID: 858766577}
   m_Layer: 6
   m_Name: InterestNode
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3825,7 +3870,7 @@ GameObject:
   - component: {fileID: 870331665}
   m_Layer: 6
   m_Name: InterestNode (21)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3906,50 +3951,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870331663}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &890987951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 890987953}
-  - component: {fileID: 890987952}
-  m_Layer: 0
-  m_Name: BasicEnemy_GroupController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &890987952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890987951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ec87f92ac07e5343b1f5e3b1e0e9d0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basicEnemyPrefab: {fileID: 6865684177630922081, guid: 2342bf48e876a0a42ae397f2c92641b7, type: 3}
---- !u!4 &890987953
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890987951}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.648159, y: 16.816484, z: 1.1354767}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &992630479
 GameObject:
   m_ObjectHideFlags: 0
@@ -5067,7 +5068,7 @@ GameObject:
   - component: {fileID: 1133203937}
   m_Layer: 6
   m_Name: InterestNode (19)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5162,7 +5163,7 @@ GameObject:
   - component: {fileID: 1152630927}
   m_Layer: 6
   m_Name: InterestNode (1)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5317,7 +5318,7 @@ GameObject:
   - component: {fileID: 1265424880}
   m_Layer: 6
   m_Name: InterestNode (14)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5505,7 +5506,7 @@ GameObject:
   - component: {fileID: 1302932638}
   m_Layer: 6
   m_Name: RoomNode (1)
-  m_TagString: Untagged
+  m_TagString: RoomNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5608,7 +5609,7 @@ GameObject:
   - component: {fileID: 1336470480}
   m_Layer: 6
   m_Name: InterestNode (15)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6195,7 +6196,7 @@ GameObject:
   - component: {fileID: 1386112590}
   m_Layer: 6
   m_Name: RoomNode (3)
-  m_TagString: Untagged
+  m_TagString: RoomNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6486,7 +6487,7 @@ GameObject:
   - component: {fileID: 1459591803}
   m_Layer: 6
   m_Name: InterestNode (11)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6581,7 +6582,7 @@ GameObject:
   - component: {fileID: 1470778954}
   m_Layer: 6
   m_Name: InterestNode (8)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7887,7 +7888,7 @@ GameObject:
   - component: {fileID: 1577495762}
   m_Layer: 6
   m_Name: InterestNode (2)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8178,7 +8179,7 @@ GameObject:
   - component: {fileID: 1715609270}
   m_Layer: 6
   m_Name: InterestNode (19)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8334,7 +8335,7 @@ GameObject:
   - component: {fileID: 1736146075}
   m_Layer: 6
   m_Name: InterestNode (22)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8429,7 +8430,7 @@ GameObject:
   - component: {fileID: 1795184152}
   m_Layer: 6
   m_Name: InterestNode (12)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8591,7 +8592,7 @@ GameObject:
   - component: {fileID: 1876454691}
   m_Layer: 6
   m_Name: InterestNode (17)
-  m_TagString: Untagged
+  m_TagString: InterestNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8686,7 +8687,7 @@ GameObject:
   - component: {fileID: 2074480196}
   m_Layer: 6
   m_Name: RoomNode (4)
-  m_TagString: Untagged
+  m_TagString: RoomNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8784,7 +8785,7 @@ GameObject:
   - component: {fileID: 2099106318}
   - component: {fileID: 2099106317}
   - component: {fileID: 2099106316}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnNode
   m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
