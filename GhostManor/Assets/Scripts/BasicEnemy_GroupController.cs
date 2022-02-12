@@ -1,74 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class BasicEnemy_GroupController : MonoBehaviour
 {
-    public List<BasicEnemy_Controller> BasicEnemy;
+    // NOTE: GetComponent<ThirdPersonPlayer_Controls>().collider = this.GetComponent<CapsuleCollider>();
 
-    private GameObject[] roomNodes;
-    public List<GameObject> unsearchedRooms;
-    private GameObject[] interestNodes;
+    public GameObject basicEnemyPrefab;
 
-    public GameObject selectedRoom;
-    public bool foundRoom;
+    private GameObject[] spawnLocations;
 
     private void Awake()
     {
-        roomNodes = GameObject.FindGameObjectsWithTag("RoomNode");
-        unsearchedRooms = new List<GameObject>(roomNodes);
-        interestNodes = GameObject.FindGameObjectsWithTag("InterestNode");
+        spawnLocations = GameObject.FindGameObjectsWithTag("EnemySpawn");
     }
 
-    public void PopulateGroupArray()
+    // Start is called before the first frame update
+    void Start()
     {
-        BasicEnemy = new List<BasicEnemy_Controller>(GetComponentsInChildren<BasicEnemy_Controller>());
+        SpawnGroup(3, false, 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetFoundRoom())
-        {
-            foreach (BasicEnemy_Controller enemy in BasicEnemy)
-            {
-                NavMeshAgent nav = enemy.GetComponent<NavMeshAgent>();
-                nav.SetDestination(selectedRoom.transform.position);
-            }
-        }
-        else
-        {
-            FindRoom();
-        }
+
     }
-
-    // Picks a random enemy in the group to find the closest room
-    // then sets "findRoom" to false once selectedRoom
-    void FindRoom()
+    
+    // EnemyAmount: Amount of enemies spawning
+    // doRandomSpawn: Pick random spot to spawn on
+    // SpawnLocationNumber: If doRandomSpawn is false, choose a location number to spawn at
+    void SpawnGroup(int EnemyAmount, bool doRandomSpawn, int spawnLocationIndex)
     {
-        float minDist = float.MaxValue;
+        if (doRandomSpawn)
+            spawnLocationIndex = UnityEngine.Random.Range(0, spawnLocations.Length);
+        if (spawnLocationIndex >= spawnLocations.Length)
+            spawnLocationIndex = spawnLocations.Length;
 
-        int rand = Random.Range(0, BasicEnemy.Count);
-        foreach (GameObject room in unsearchedRooms)
+        GameObject selectedSpawnObject = spawnLocations[spawnLocationIndex];
+        Transform selectedSpawnTransform = selectedSpawnObject.GetComponent<Transform>();
+
+        for (int i = 0; i < EnemyAmount; i++)
         {
-            float closestRoom = Vector3.Distance(room.transform.position, BasicEnemy[rand].transform.position);
-            if (closestRoom < minDist)
-            {
-                minDist = closestRoom;
-                selectedRoom = room;
-            }
+            Instantiate(basicEnemyPrefab, selectedSpawnTransform.position, Quaternion.identity);
         }
-        foundRoom = true;
-    }
-
-    bool GetFoundRoom()
-    {
-        return foundRoom;
-    }
-
-    void AreaOfInterest()
-    {
-
     }
 }
