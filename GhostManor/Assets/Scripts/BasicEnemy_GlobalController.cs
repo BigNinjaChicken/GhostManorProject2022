@@ -21,7 +21,7 @@ public class BasicEnemy_GlobalController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnGroup(3, false, 1);
+        SpawnGroup(23, false, 1);
         SpawnGroup(2, false, 0);
     }
 
