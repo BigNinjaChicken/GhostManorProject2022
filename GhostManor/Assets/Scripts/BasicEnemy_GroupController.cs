@@ -65,15 +65,16 @@ public class BasicEnemy_GroupController : MonoBehaviour
         float minDist = float.MaxValue;
 
         int rand = UnityEngine.Random.Range(0, BasicEnemy.Count);
-        foreach (GameObject room in unsearchedRooms)
+        for (int i = 0; i < unsearchedRooms.Count; i++)
         {
-            float closestRoom = Vector3.Distance(room.transform.position, BasicEnemy[rand].transform.position);
+            float closestRoom = Vector3.Distance(unsearchedRooms[i].transform.position, BasicEnemy[rand].transform.position);
             if (closestRoom < minDist)
             {
                 minDist = closestRoom;
-                selectedRoom = room;
+                selectedRoom = unsearchedRooms[i];
             }
         }
+
         unsearchedRooms.Remove(selectedRoom);
         if (unsearchedRooms.Count.Equals(0))
         {
@@ -128,8 +129,6 @@ public class BasicEnemy_GroupController : MonoBehaviour
 
     void WaitedAtInterest()
     {
-        Debug.Log("LOOP!!!");
-
         foundRoom = false;
         inRoom = false;
         goingToInterest = false;

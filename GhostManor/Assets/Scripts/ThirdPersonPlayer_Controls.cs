@@ -25,11 +25,22 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
 
     [SerializeField]
     private Camera playerCamera;
+    private float x, y;
+
+    //set mask to the mask of the object you
+    //want to look at in the editor.
+    public LayerMask mask;
 
     private void Start()
     {
         // get the distance to ground
         distToGround = collider.bounds.extents.y;
+    }
+
+    private void Update()
+    {
+        x = Screen.width / 2;
+        y = Screen.height / 2;
     }
 
     private void Awake()
@@ -57,6 +68,9 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
         // on the jump input action
         ghostInputActions.Player.Jump.performed += DoJump;
         ghostInputActions.Player.Jump.Enable();
+
+        ghostInputActions.Player.Fire.performed += DoFire;
+        ghostInputActions.Player.Fire.Enable(); 
     }
 
     // Reason for OnDisable(): events wont get called and
@@ -74,6 +88,19 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
         {
             //Debug.Log("Jump Force!!!");
             forceDirection += Vector3.up * jumpForce;
+        }
+    }
+
+    private void DoFire(InputAction.CallbackContext obj)
+    {
+        Debug.Log("Fire!!!");
+
+        Ray ray = playerCamera.ScreenPointToRay(new Vector3(x, y, 0));
+        Debug.DrawRay(ray.origin, ray.direction * 1000, Color.yellow, 2.0f);
+
+        if (Physics.Raycast(ray.origin, ray.direction, out var hit, Mathf.Infinity, mask))
+        {
+            GameObject hitObj = hit.collider.gameObject;
         }
     }
 
