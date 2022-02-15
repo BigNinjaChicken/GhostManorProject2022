@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class ThirdPersonPlayer_Controls : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
 
     // movement feilds
     private Rigidbody rb;
-    public new Collider collider;
+    private new Collider collider;
+    private Transform playerTrans;
     [SerializeField]
     private float movementForce = 1f;
     [SerializeField]
@@ -26,6 +28,19 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     [SerializeField]
     private Camera playerCamera;
     private float x, y;
+
+    [SerializeField]
+    GameObject capturedPlayerPrefab;
+    // any number above 0 for inVision means player is in vision cone
+    [SerializeField]
+    private int VisionCount; // player in vision
+    [SerializeField]
+    private float captureDistance = 5f;
+    [SerializeField]
+    private float captureTime = 2.5f; // time in sec. it takes to capture
+    private float timeRemaining = 0f;
+    private bool timerIsRunning = false;
+    private GameObject capturedEnemy;
 
     //set mask to the mask of the object you
     //want to look at in the editor.
@@ -41,6 +56,30 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     {
         x = Screen.width / 2;
         y = Screen.height / 2;
+
+        Timer();
+    }
+
+    private void Timer()
+    {
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                // Time ran out
+                timeRemaining = 0;
+                timerIsRunning = false;
+
+                if (VisionCount <= 0)
+                {
+                    StartCoroutine(CaptureEnemy());
+                }
+            }
+        }
     }
 
     private void Awake()
@@ -51,6 +90,7 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
         // cache ref.
         rb = this.GetComponent<Rigidbody>();
         collider = this.GetComponent<CapsuleCollider>();
+        playerTrans = this.GetComponent<Transform>();
 
         // Input action asset is not static or gloabal
         // So we must make a new instance of the input action asset
@@ -91,17 +131,59 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
         }
     }
 
+    // Raycast to check if hit enemy
     private void DoFire(InputAction.CallbackContext obj)
     {
-        Debug.Log("Fire!!!");
-
         Ray ray = playerCamera.ScreenPointToRay(new Vector3(x, y, 0));
-        Debug.DrawRay(ray.origin, ray.direction * 1000, Color.yellow, 2.0f);
+        //Debug.DrawRay(ray.origin, ray.direction * 1000, Color.yellow, 10.0f);
 
-        if (Physics.Raycast(ray.origin, ray.direction, out var hit, Mathf.Infinity, mask))
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(ray, out hit))
         {
-            GameObject hitObj = hit.collider.gameObject;
+            if (hit.collider.gameObject.CompareTag("BasicEnemy"))
+            {
+                GameObject hitEnemy = hit.collider.gameObject;
+
+                if (Vector3.Distance(playerTrans.position, hitEnemy.transform.position) < captureDistance) 
+                {
+                    //CinemachineVirtualCamera hitCam = hitEnemy.GetComponentInChildren<CinemachineVirtualCamera>();
+                    //hitCam.Priority = 20;
+
+                    //hitEnemy.GetComponent<BasicEnemy_Controller>().RemoveEnemy();
+                    if (VisionCount <= 0)
+                    {
+                        capturedEnemy = hitEnemy;
+
+                        // enables timer in update method
+                        timeRemaining = captureTime;
+                        timerIsRunning = true;
+                    }
+                }
+            }
         }
+    }
+
+    IEnumerator CaptureEnemy()
+    {
+        // GameObject capturedEnemy : Enemy that got captured
+
+        CinemachineVirtualCamera hitCam = capturedEnemy.GetComponentInChildren<CinemachineVirtualCamera>();
+        hitCam.Priority = 20;
+
+        
+        float dist = Vector3.Distance(hitCam.transform.position, capturedEnemy.transform.position);
+        // wait until close enough to continue
+        yield return new WaitUntil(() => dist < 0.5f);
+
+        // make new player prefab and
+        Transform capturedEnemyTrans = capturedEnemy.GetComponent<Transform>();
+        Instantiate(capturedPlayerPrefab, capturedEnemyTrans.position, capturedEnemyTrans.rotation);
+        capturedEnemy.GetComponent<BasicEnemy_Controller>().RemoveEnemy();
+    }
+
+    public void ChangeVisionCount(int count)
+    {
+        VisionCount += count;
     }
 
     private bool isGrounded()

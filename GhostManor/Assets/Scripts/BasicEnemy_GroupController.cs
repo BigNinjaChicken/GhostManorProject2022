@@ -11,12 +11,14 @@ public class BasicEnemy_GroupController : MonoBehaviour
     // NOTE: GetComponent<ThirdPersonPlayer_Controls>().collider = this.GetComponent<CapsuleCollider>();
 
     private GameObject[] roomNodes;
-    public List<GameObject> unsearchedRooms;
+    [SerializeField]
+    private List<GameObject> unsearchedRooms;
     private List<Transform> interestNodes;
     public GameObject basicEnemyPrefab;
 
-    public GameObject selectedRoom;
-    public bool foundRoom;
+    [SerializeField]
+    private GameObject selectedRoom;
+    private bool foundRoom;
     private GameObject[] spawnLocations;
     private bool inRoom;
     private bool goingToInterest;
@@ -34,6 +36,12 @@ public class BasicEnemy_GroupController : MonoBehaviour
         searching = false;
     }
 
+    // called by BasicEnemy_Controller to remove enemy from the list
+    public void RemoveEnemy(BasicEnemy_Controller removedEnemyController)
+    {
+        BasicEnemy.Remove(removedEnemyController);
+    }
+
     public void PopulateGroupArray()
     {
         BasicEnemy = new List<BasicEnemy_Controller>(GetComponentsInChildren<BasicEnemy_Controller>());
@@ -42,6 +50,11 @@ public class BasicEnemy_GroupController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (BasicEnemy.Count <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         if (GetFoundRoom())
         {
             // the inRoom var gets changed in EnteredRoom
@@ -106,12 +119,15 @@ public class BasicEnemy_GroupController : MonoBehaviour
         }
     }
 
-    public void EnteredRoom(List<Transform> interestNodesTemp)
+    public void EnteredRoom(List<Transform> interestNodesTemp, GameObject room)
     {
-        if (!inRoom)
+        if (room.Equals(selectedRoom))
         {
-            inRoom = true;
-            interestNodes = interestNodesTemp;
+            if (!inRoom)
+            {
+                inRoom = true;
+                interestNodes = interestNodesTemp;
+            }
         }
     }
 
@@ -120,6 +136,7 @@ public class BasicEnemy_GroupController : MonoBehaviour
         if (!goingToInterest)
         {
             goingToInterest = true;
+            Debug.Log("interest");
             foreach (BasicEnemy_Controller enemy in BasicEnemy)
             {
                 int randNode;

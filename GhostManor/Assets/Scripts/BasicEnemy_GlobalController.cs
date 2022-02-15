@@ -21,8 +21,8 @@ public class BasicEnemy_GlobalController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnGroup(23, false, 1);
-        SpawnGroup(2, false, 0);
+        SpawnGroup(1, false, 1);
+        // SpawnGroup(2, false, 0);
     }
 
     // EnemyAmount: Amount of enemies spawning

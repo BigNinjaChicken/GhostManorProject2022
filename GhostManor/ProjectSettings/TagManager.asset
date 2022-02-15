@@ -7,6 +7,8 @@ TagManager:
   - EnemySpawn
   - RoomNode
   - InterestNode
+  - BasicEnemy
+  - VisionCone
   layers:
   - Default
   - TransparentFX
