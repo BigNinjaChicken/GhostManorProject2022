@@ -30,7 +30,7 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     private float x, y;
 
     [SerializeField]
-    GameObject capturedPlayerPrefab;
+    GameObject capturedPlayer;
     // any number above 0 for inVision means player is in vision cone
     [SerializeField]
     private int VisionCount; // player in vision
@@ -119,6 +119,7 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     {
         movement.Disable();
         ghostInputActions.Player.Jump.Disable();
+        ghostInputActions.Player.Fire.Disable();
     }
 
     private void DoJump(InputAction.CallbackContext obj)
@@ -175,10 +176,12 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
         // wait until close enough to continue
         yield return new WaitUntil(() => dist < 0.5f);
 
-        // make new player prefab and
         Transform capturedEnemyTrans = capturedEnemy.GetComponent<Transform>();
-        Instantiate(capturedPlayerPrefab, capturedEnemyTrans.position, capturedEnemyTrans.rotation);
         capturedEnemy.GetComponent<BasicEnemy_Controller>().RemoveEnemy();
+        
+        this.enabled = false;
+        capturedPlayer.transform.position = capturedEnemyTrans.position;
+        capturedPlayer.SetActive(true);
     }
 
     public void ChangeVisionCount(int count)

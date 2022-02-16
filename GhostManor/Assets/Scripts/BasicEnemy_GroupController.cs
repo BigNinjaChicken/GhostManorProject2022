@@ -136,7 +136,6 @@ public class BasicEnemy_GroupController : MonoBehaviour
         if (!goingToInterest)
         {
             goingToInterest = true;
-            Debug.Log("interest");
             foreach (BasicEnemy_Controller enemy in BasicEnemy)
             {
                 int randNode;
