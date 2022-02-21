@@ -40,15 +40,38 @@ public class FirstPersonPlayer_Controls : MonoBehaviour
     private float xClamp = 85f;
     private float xRotation = 0f;
 
+    [SerializeField] private RectTransform healthUI;
+
+    private float maxHealth = 100f;
+    public float currentHealth;
+
+    [SerializeField] private float decayMultiplier = 2f;
+
+    [SerializeField] private GameObject ghostPlayer;
+    [SerializeField] private GameObject ghostPlayerMesh;
 
     private void Start()
     {
+        currentHealth = maxHealth;
+
         // get the distance to ground
         distToGround = collider.bounds.extents.y;
     }
 
     private void Update()
     {
+        currentHealth -= (Time.deltaTime * decayMultiplier);
+        healthUI.localScale = new Vector3(currentHealth / 100, 1, 1);
+
+        if (currentHealth <= 0)
+        {
+            ghostPlayer.transform.position = transform.position;
+            ghostPlayer.transform.rotation = transform.rotation;
+            ghostPlayer.GetComponent<ThirdPersonPlayer_Controls>().enabled = true;
+            ghostPlayerMesh.SetActive(true);
+            gameObject.SetActive(false);
+        }
+
         x = Screen.width / 2;
         y = Screen.height / 2;
     }

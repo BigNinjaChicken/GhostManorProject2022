@@ -33,7 +33,8 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     GameObject capturedPlayer;
     // any number above 0 for inVision means player is in vision cone
     [SerializeField]
-    private int VisionCount; // player in vision
+    public int VisionCount; // player in vision
+    private int captureVisionCount;
     [SerializeField]
     private float captureDistance = 5f;
     [SerializeField]
@@ -41,19 +42,11 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     private float timeRemaining = 0f;
     private bool timerIsRunning = false;
     private GameObject capturedEnemy;
-<<<<<<< HEAD
-<<<<<<< HEAD
     private bool capturing = false;
+    private PlayerHealth healthScript;
+    [SerializeField] private GameObject ghostMesh;
     [SerializeField] private CanvasGroup captureUI;
-    [SerializeField] private HealthController healthScript;
-<<<<<<< HEAD
-    public bool playerAttacking = false;
-=======
->>>>>>> parent of 1c815e9 (Update)
-=======
->>>>>>> parent of 95589eb (Broke)
-=======
->>>>>>> parent of 1c815e9 (Update)
+    [SerializeField] private CanvasGroup failUI;
 
     //set mask to the mask of the object you
     //want to look at in the editor.
@@ -61,6 +54,8 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
 
     private void Start()
     {
+        healthScript = gameObject.GetComponent<PlayerHealth>();
+
         // get the distance to ground
         distToGround = collider.bounds.extents.y;
     }
@@ -87,9 +82,17 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
 
-                if (VisionCount <= 0)
+                capturing = false;
+                captureUI.alpha = 0;
+                movementForce /= 0.35f;
+
+                if (captureVisionCount <= 0)
                 {
                     StartCoroutine(CaptureEnemy());
+                } 
+                else
+                {
+                    StartCoroutine(FailCaptureEnemy());
                 }
             }
         }
@@ -168,6 +171,11 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
                     {
                         capturedEnemy = hitEnemy;
 
+                        capturing = true;
+                        movementForce *= 0.35f;
+                        captureUI.alpha = 1;
+                        captureVisionCount = 0;
+
                         // enables timer in update method
                         timeRemaining = captureTime;
                         timerIsRunning = true;
@@ -191,25 +199,34 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
 
         Transform capturedEnemyTrans = capturedEnemy.GetComponent<Transform>();
         capturedEnemy.GetComponent<BasicEnemy_Controller>().RemoveEnemy();
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         healthScript.gotKill();
 
         ghostMesh.SetActive(false);
-=======
-        
->>>>>>> parent of 1c815e9 (Update)
-=======
-        
->>>>>>> parent of 1c815e9 (Update)
+
         this.enabled = false;
+
         capturedPlayer.transform.position = capturedEnemyTrans.position;
+        capturedPlayer.transform.rotation = capturedEnemyTrans.rotation;
         capturedPlayer.SetActive(true);
+    }
+
+    IEnumerator FailCaptureEnemy()
+    {
+        failUI.alpha = 1;
+        yield return new WaitForSeconds(1.8f);
+        failUI.alpha = 0;
     }
 
     public void ChangeVisionCount(int count)
     {
+        if (capturing)
+        {
+            if (count > 0)
+            {
+                captureVisionCount += count;
+            }
+        }
         VisionCount += count;
     }
 
