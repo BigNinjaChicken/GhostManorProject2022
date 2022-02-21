@@ -42,6 +42,7 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     private bool timerIsRunning = false;
     private GameObject capturedEnemy;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private bool capturing = false;
     [SerializeField] private CanvasGroup captureUI;
     [SerializeField] private HealthController healthScript;
@@ -51,6 +52,8 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
 >>>>>>> parent of 1c815e9 (Update)
 =======
 >>>>>>> parent of 95589eb (Broke)
+=======
+>>>>>>> parent of 1c815e9 (Update)
 
     //set mask to the mask of the object you
     //want to look at in the editor.
@@ -189,10 +192,14 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
         Transform capturedEnemyTrans = capturedEnemy.GetComponent<Transform>();
         capturedEnemy.GetComponent<BasicEnemy_Controller>().RemoveEnemy();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         healthScript.gotKill();
 
         ghostMesh.SetActive(false);
+=======
+        
+>>>>>>> parent of 1c815e9 (Update)
 =======
         
 >>>>>>> parent of 1c815e9 (Update)

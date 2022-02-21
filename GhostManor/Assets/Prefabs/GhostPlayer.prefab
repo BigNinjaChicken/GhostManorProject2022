@@ -493,6 +493,7 @@ Transform:
   m_GameObject: {fileID: 5229978673293886062}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: -0.018141434, y: 0.000000004243641, z: -7.808779e-10, w: 0.99983543}
 =======
   m_LocalRotation: {x: -0.018141434, y: -0.000000004243651, z: 7.808799e-10, w: 0.99983543}
@@ -502,6 +503,10 @@ Transform:
   m_LocalRotation: {x: -0.018141434, y: -0.000000004243652, z: 7.8088e-10, w: 0.99983543}
   m_LocalPosition: {x: -0.6000004, y: -0.0000000010292855, z: -0.000000005074549}
 >>>>>>> parent of 95589eb (Broke)
+=======
+  m_LocalRotation: {x: -0.018141434, y: -0.000000004243651, z: 7.808799e-10, w: 0.99983543}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+>>>>>>> parent of 1c815e9 (Update)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5229978673902186508}
@@ -576,6 +581,7 @@ Transform:
   m_GameObject: {fileID: 5229978673437633597}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: 0.018189512, y: 0.0000000042112345, z: -9.342357e-10, w: 0.9998346}
 =======
   m_LocalRotation: {x: 0.018189512, y: 0.0000000042124855, z: -9.345151e-10, w: 0.9998346}
@@ -583,6 +589,9 @@ Transform:
 =======
   m_LocalRotation: {x: 0.018189505, y: -1.3645973e-11, z: 2.9043434e-13, w: 0.9998346}
 >>>>>>> parent of 95589eb (Broke)
+=======
+  m_LocalRotation: {x: 0.018189512, y: 0.0000000042124855, z: -9.345151e-10, w: 0.9998346}
+>>>>>>> parent of 1c815e9 (Update)
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -664,6 +673,7 @@ Transform:
   m_GameObject: {fileID: 5229978673853835361}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: 0.100201175, y: -0.0000000042934514, z: 4.2969114e-10, w: 0.9949672}
 =======
   m_LocalRotation: {x: 0.100201175, y: 0.0000000042934505, z: -4.2969112e-10, w: 0.9949672}
@@ -671,6 +681,9 @@ Transform:
 =======
   m_LocalRotation: {x: 0.100201175, y: 0.0000000042934514, z: -4.2969114e-10, w: 0.9949672}
 >>>>>>> parent of 95589eb (Broke)
+=======
+  m_LocalRotation: {x: 0.100201175, y: 0.0000000042934505, z: -4.2969112e-10, w: 0.9949672}
+>>>>>>> parent of 1c815e9 (Update)
   m_LocalPosition: {x: 0.6000004, y: 2.65, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1081,6 +1094,7 @@ Transform:
   m_GameObject: {fileID: 5229978673882388714}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: 0.000000022351742, y: 0.000000008443843, z: -0.000000001715416, w: 1}
   m_LocalPosition: {x: -0.6000004, y: 0.0000000010292855, z: 0.000000005074549}
 =======
@@ -1089,6 +1103,9 @@ Transform:
 >>>>>>> parent of 1c815e9 (Update)
 =======
   m_LocalRotation: {x: 0.000000022351742, y: -0.0000000084440055, z: 0.000000001715449, w: 1}
+=======
+  m_LocalRotation: {x: 0.000000022351742, y: -0.000000008430465, z: 0.0000000017126941, w: 1}
+>>>>>>> parent of 1c815e9 (Update)
   m_LocalPosition: {x: 0, y: 0, z: 0}
 >>>>>>> parent of 95589eb (Broke)
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1326,6 +1343,7 @@ MonoBehaviour:
   captureDistance: 10
   captureTime: 2.5
 <<<<<<< HEAD
+<<<<<<< HEAD
   captureUI: {fileID: 87542725176549237}
 <<<<<<< HEAD
   healthScript: {fileID: 4380583175150539766}
@@ -1334,6 +1352,8 @@ MonoBehaviour:
 >>>>>>> parent of 1c815e9 (Update)
 =======
 >>>>>>> parent of 95589eb (Broke)
+=======
+>>>>>>> parent of 1c815e9 (Update)
   mask:
     serializedVersion: 2
     m_Bits: 64
