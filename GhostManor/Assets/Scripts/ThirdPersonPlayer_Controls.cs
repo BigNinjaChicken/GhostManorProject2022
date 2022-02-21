@@ -46,6 +46,7 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     private bool capturing = false;
     [SerializeField] private CanvasGroup captureUI;
     [SerializeField] private HealthController healthScript;
+    public bool playerAttacking = false;
 
     //set mask to the mask of the object you
     //want to look at in the editor.
@@ -194,6 +195,7 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
         capturedEnemy.GetComponent<BasicEnemy_Controller>().RemoveEnemy();
 
         healthScript.gotKill();
+        playerAttacking = true;
 
         ghostMesh.SetActive(false);
         this.enabled = false;

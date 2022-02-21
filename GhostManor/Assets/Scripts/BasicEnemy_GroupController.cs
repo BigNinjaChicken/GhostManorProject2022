@@ -24,11 +24,15 @@ public class BasicEnemy_GroupController : MonoBehaviour
     private bool goingToInterest;
     private bool searching;
 
+    private ThirdPersonPlayer_Controls playerScript;
+    private bool PlayerAttacking;
+
     private void Awake()
     {
         roomNodes = GameObject.FindGameObjectsWithTag("RoomNode");
         unsearchedRooms = new List<GameObject>(roomNodes);
         spawnLocations = GameObject.FindGameObjectsWithTag("EnemySpawn");
+        playerScript = GameObject.Find("GhostPlayer").GetComponent<ThirdPersonPlayer_Controls>();
 
         foundRoom = false;
         inRoom = false;
@@ -50,28 +54,40 @@ public class BasicEnemy_GroupController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerAttacking = playerScript.playerAttacking;
+
         if (BasicEnemy.Count <= 0)
         {
             Destroy(gameObject);
         }
 
-        if (GetFoundRoom())
+        if (PlayerAttacking)
         {
-            // the inRoom var gets changed in EnteredRoom
-            if (GetInRoom())
-            {
-                GoToInterest();
-            } 
-            else
-            {
-                GoToRoom();
-            }
+            Vector3 lookPos = playerScript.gameObject.transform.position - transform.position;
+            lookPos.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 40.3f);
         }
         else
         {
-            FindRoom();
+            if (GetFoundRoom())
+            {
+                // the inRoom var gets changed in EnteredRoom
+                if (GetInRoom())
+                {
+                    GoToInterest();
+                }
+                else
+                {
+                    GoToRoom();
+                }
+            }
+            else
+            {
+                FindRoom();
+            }
         }
-    }
+    }        
 
     // Picks a random enemy in the group to find the closest room
     // then sets "findRoom" to false once selectedRoom

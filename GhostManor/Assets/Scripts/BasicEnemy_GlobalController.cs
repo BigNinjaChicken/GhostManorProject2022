@@ -22,7 +22,7 @@ public class BasicEnemy_GlobalController : MonoBehaviour
     void Start()
     {
         SpawnGroup(1, false, 1);
-        // SpawnGroup(2, false, 0);
+        SpawnGroup(1, false, 0);
     }
 
     // EnemyAmount: Amount of enemies spawning
