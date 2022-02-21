@@ -111,13 +111,12 @@ public class IntroManager : MonoBehaviour
     IEnumerator UponATime()
     {
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
 
         doFadeUponTime = true;
-
-        yield return new WaitForSeconds(1);
         thunderAudio.Play(0);
 
+        yield return new WaitForSeconds(1);
         doFadeUponTimeBackground = true;
 
         yield return new WaitForSeconds(1.0f);
