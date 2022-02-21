@@ -45,9 +45,12 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     private bool capturing = false;
     [SerializeField] private CanvasGroup captureUI;
     [SerializeField] private HealthController healthScript;
+<<<<<<< HEAD
     public bool playerAttacking = false;
 =======
 >>>>>>> parent of 1c815e9 (Update)
+=======
+>>>>>>> parent of 95589eb (Broke)
 
     //set mask to the mask of the object you
     //want to look at in the editor.
@@ -188,7 +191,6 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
 <<<<<<< HEAD
 
         healthScript.gotKill();
-        playerAttacking = true;
 
         ghostMesh.SetActive(false);
 =======
