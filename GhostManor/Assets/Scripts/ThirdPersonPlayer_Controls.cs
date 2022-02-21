@@ -17,6 +17,8 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     private new Collider collider;
     private Transform playerTrans;
     [SerializeField]
+    private GameObject ghostMesh;
+    [SerializeField]
     private float movementForce = 1f;
     [SerializeField]
     private float jumpForce = 5f;
@@ -32,8 +34,8 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     [SerializeField]
     GameObject capturedPlayer;
     // any number above 0 for inVision means player is in vision cone
-    [SerializeField]
-    private int VisionCount; // player in vision
+    public int VisionCount; // player in vision
+    private int captureVisionCount;
     [SerializeField]
     private float captureDistance = 5f;
     [SerializeField]
@@ -41,6 +43,9 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
     private float timeRemaining = 0f;
     private bool timerIsRunning = false;
     private GameObject capturedEnemy;
+    private bool capturing = false;
+    [SerializeField] private CanvasGroup captureUI;
+    [SerializeField] private HealthController healthScript;
 
     //set mask to the mask of the object you
     //want to look at in the editor.
@@ -74,7 +79,9 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
 
-                if (VisionCount <= 0)
+                movementForce /= 0.3f;
+                captureUI.alpha = 0;
+                if (captureVisionCount <= 0)
                 {
                     StartCoroutine(CaptureEnemy());
                 }
@@ -151,8 +158,15 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
                     //hitCam.Priority = 20;
 
                     //hitEnemy.GetComponent<BasicEnemy_Controller>().RemoveEnemy();
+
                     if (VisionCount <= 0)
                     {
+                        movementForce *= 0.3f;
+
+                        capturing = true;
+                        captureVisionCount = 0;
+                        captureUI.alpha = 1;
+
                         capturedEnemy = hitEnemy;
 
                         // enables timer in update method
@@ -178,15 +192,27 @@ public class ThirdPersonPlayer_Controls : MonoBehaviour
 
         Transform capturedEnemyTrans = capturedEnemy.GetComponent<Transform>();
         capturedEnemy.GetComponent<BasicEnemy_Controller>().RemoveEnemy();
-        
+
+        healthScript.gotKill();
+
+        ghostMesh.SetActive(false);
         this.enabled = false;
         capturedPlayer.transform.position = capturedEnemyTrans.position;
+        capturedPlayer.transform.rotation = capturedEnemyTrans.rotation;
         capturedPlayer.SetActive(true);
     }
 
     public void ChangeVisionCount(int count)
     {
+        if (capturing)
+        {
+            if (count > 0)
+            {
+                captureVisionCount += count;
+            }
+        }
         VisionCount += count;
+
     }
 
     private bool isGrounded()
